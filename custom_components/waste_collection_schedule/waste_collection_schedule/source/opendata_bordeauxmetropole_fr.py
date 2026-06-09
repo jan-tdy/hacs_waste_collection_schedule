@@ -317,8 +317,8 @@ class Source:
         list_of_infos = [
             i
             for i in json.loads(response.text)
-            if i["geo_shape"]
-            and self._is_within_geo_shape(i["geo_shape"], address_params)
+            if (geo_shape := i.get("geo_shape"))
+            and self._is_within_geo_shape(geo_shape, address_params)
         ]
 
         filtered_responses: dict[str, list[str]] = {}
