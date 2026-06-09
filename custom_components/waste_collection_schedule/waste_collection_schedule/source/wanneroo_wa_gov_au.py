@@ -314,16 +314,13 @@ class Source:
 
             if "general" in bin_type_raw.lower():
                 bin_type = "General Waste"
-                icon = "mdi:trash-can"
             elif "recycl" in bin_type_raw.lower():
                 bin_type = "Recycling"
-                icon = "mdi:recycle"
             elif "green" in bin_type_raw.lower() or "garden" in bin_type_raw.lower():
                 bin_type = "Garden Organics"
-                icon = "mdi:leaf"
             else:
                 bin_type = bin_type_raw
-                icon = ICON_MAP.get(bin_type)  # type: ignore[assignment, no-redef]
+            icon = ICON_MAP.get(bin_type)
 
             try:
                 dates = _parse_rythm_description(rythm_description, bin_type)

@@ -22,6 +22,11 @@ ICON_MAP = {
     "Restavfall": Icons.GENERAL_WASTE,
     "Matavfall": Icons.BIO_KITCHEN,
     "Blandat": Icons.GENERAL_WASTE,
+    "Plast": Icons.PLASTIC_PACKAGING,
+    "Papper": Icons.PAPER,
+    "Glas": Icons.GLASS,
+    "Metall": Icons.METAL,
+    "Tidningar": Icons.NEWSPAPER,
 }
 
 
