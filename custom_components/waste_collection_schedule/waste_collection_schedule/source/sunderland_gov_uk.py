@@ -105,10 +105,8 @@ class Source:
                     )
 
         if not found_data:
-            raise SourceArgumentNotFound(
-                "postcode",
-                self._postcode.replace("+", " "),
-                "Unable to fetch bin collection dates. The service may be temporarily unavailable.",
+            raise Exception(
+                "Unable to fetch bin collection dates. The website structure may have changed or the service is temporarily unavailable."
             )
 
         return entries
