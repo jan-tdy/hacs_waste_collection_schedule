@@ -4,7 +4,9 @@ from datetime import datetime
 import requests
 from bs4 import BeautifulSoup
 from waste_collection_schedule import Collection, Icons  # type: ignore[attr-defined]
-from waste_collection_schedule.exceptions import SourceArgumentNotFound  # type: ignore[attr-defined]
+from waste_collection_schedule.exceptions import (
+    SourceArgumentNotFound,  # type: ignore[attr-defined]
+)
 
 TITLE = "Sunderland City Council"
 DESCRIPTION = "Source for sunderland.gov.uk services for Sunderland City Council, UK."
@@ -98,7 +100,9 @@ class Source:
                 if dt and dt.text.strip():
                     entries.append(
                         Collection(
-                            date=datetime.strptime(dt.text.strip(), "%A %d %B %Y").date(),
+                            date=datetime.strptime(
+                                dt.text.strip(), "%A %d %B %Y"
+                            ).date(),
                             t=waste,
                             icon=ICON_MAP.get(waste),
                         )
