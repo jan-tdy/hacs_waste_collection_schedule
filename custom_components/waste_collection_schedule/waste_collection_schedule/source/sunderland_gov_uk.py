@@ -4,6 +4,7 @@ from datetime import datetime
 import requests
 from bs4 import BeautifulSoup
 from waste_collection_schedule import Collection, Icons  # type: ignore[attr-defined]
+from waste_collection_schedule.exceptions import SourceArgumentNotFound  # type: ignore[attr-defined]
 
 TITLE = "Sunderland City Council"
 DESCRIPTION = "Source for sunderland.gov.uk services for Sunderland City Council, UK."
@@ -31,7 +32,7 @@ class Source:
     def get_viewstate(self, content: str) -> dict:
         tags = {}
         soup = BeautifulSoup(content, "html.parser")
-        hidden_tags = soup.findAll("input", type="hidden")
+        hidden_tags = soup.find_all("input", type="hidden")
         for tag in hidden_tags:
             tags[tag.get("name")] = tag.get("value")
         return tags
@@ -41,7 +42,7 @@ class Source:
 
         # visit webpage to get viewstate info
         r = s.get(API_URL, headers=HEADERS)
-        r.raise_for_status
+        r.raise_for_status()
 
         # update payload and perform address search
         payload = self.get_viewstate(r.content)
@@ -53,40 +54,61 @@ class Source:
             }
         )
         r = s.post(API_URL, data=payload, headers=HEADERS)
-        r.raise_for_status
+        r.raise_for_status()
 
         # search results for address and get unique house code
         soup = BeautifulSoup(r.content, "html.parser")
-        options = soup.findAll("option")
+        options = soup.find_all("option")
         for item in options:
             if re.match(self._address, item.text, re.IGNORECASE):
                 self._ddlAddress = item.get("value")
 
-        # update payload and get schedule
+        if not self._ddlAddress:
+            raise SourceArgumentNotFound(
+                "address",
+                self._address,
+                f"No match found for postcode {self._postcode.replace('+', ' ')}",
+            )
+
+        # update payload and get schedule with proper postback
         payload = self.get_viewstate(r.content)
         payload.update(
             {
                 "ctl00$ContentPlaceHolder1$tbPostCode$controltext": self._postcode,
                 "ctl00$ContentPlaceHolder1$tbPostCode$_Mandatory": "true",
                 "ctl00$ContentPlaceHolder1$ddlAddresses": self._ddlAddress,
+                "__EVENTTARGET": "ctl00$ContentPlaceHolder1$ddlAddresses",
+                "__EVENTARGUMENT": "",
             }
         )
         r = s.post(API_URL, data=payload, headers=HEADERS)
-        r.raise_for_status
+        r.raise_for_status()
 
         # extract collection dates
         entries = []
         soup = BeautifulSoup(r.content, "html.parser")
+
+        # Try to find the old panel structure first
+        found_data = False
         for waste in ICON_MAP:
-            containers = soup.findAll("div", {"id": f"ContentPlaceHolder1_pnl{waste}"})
+            containers = soup.find_all("div", {"id": f"ContentPlaceHolder1_pnl{waste}"})
             for item in containers:
+                found_data = True
                 dt = item.find("span", {"id": f"ContentPlaceHolder1_Label{waste}"})
-                entries.append(
-                    Collection(
-                        date=datetime.strptime(dt.text.strip(), "%A %d %B %Y").date(),
-                        t=waste,
-                        icon=ICON_MAP.get(waste),
+                if dt and dt.text.strip():
+                    entries.append(
+                        Collection(
+                            date=datetime.strptime(dt.text.strip(), "%A %d %B %Y").date(),
+                            t=waste,
+                            icon=ICON_MAP.get(waste),
+                        )
                     )
-                )
+
+        if not found_data:
+            raise SourceArgumentNotFound(
+                "postcode",
+                self._postcode.replace("+", " "),
+                "Unable to fetch bin collection dates. The service may be temporarily unavailable.",
+            )
 
         return entries
