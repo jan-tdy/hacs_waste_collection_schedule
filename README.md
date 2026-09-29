@@ -3304,6 +3304,7 @@ If you already have enough information for your municipality/region, you are ver
 - [Borlänge Energi](/doc/source/borlange_energi_se.md) / borlange-energi.se/avfall-och-atervinning/sophamtning
 - [Borås Energi och Miljö](/doc/source/edpevent_se.md) / borasem.se
 - [Bräcke](/doc/source/vattenmiljoresurs_se.md) / vattenmiljoresurs.se/bracke/avfall-och-atervinning/avfallshamtning/nar-kommer-sopbilen
+- [Danderyds kommun](/doc/source/edpevent_se.md) / danderyd.se
 - [EDPEvent - Multi Source](/doc/source/edpevent_se.md) / edpevent.se
 - [Ekerö](/doc/source/roslagsvatten_se.md) / roslagsvatten.se
 - [Falu Energi & Vatten (FEV)](/doc/source/fev_se.md) / fev.se
@@ -3882,7 +3883,7 @@ If you already have enough information for your municipality/region, you are ver
 - [Stoke-on-Trent](/doc/source/stoke_gov_uk.md) / stoke.gov.uk
 - [Stratford District Council](/doc/source/stratford_gov_uk.md) / stratford.gov.uk
 - [Stroud District Council](/doc/source/stroud_gov_uk.md) / stroud.gov.uk
-- [Sunderland City Council](/doc/source/sunderland_gov_uk.md) / sunderland.gov.uk
+- [Sunderland City Council](/doc/source/sunderland_gov_uk.md) / sunderland.gov.uk/bindays?ccp=true
 - [Surrey Heath Borough Council](/doc/source/jointwastesolutions_org.md) / surreyheath.gov.uk
 - [Sutton Council, London](/doc/source/sutton_gov_uk.md) / sutton.gov.uk
 - [Swale Borough Council](/doc/source/swale_gov_uk.md) / swale.gov.uk
