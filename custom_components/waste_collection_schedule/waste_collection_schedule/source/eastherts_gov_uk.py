@@ -1,7 +1,7 @@
-import json
 import logging
 import re
 import time
+import xml.etree.ElementTree as ET
 from datetime import datetime
 
 import requests
@@ -111,9 +111,12 @@ class Source:
     def resolve_year(self, dt):
         today = datetime.now()
         this_year = today.year
-        temp_dt = parse(f"{dt} {this_year}")
+        # The portal returns ordinal day suffixes (e.g. "5th"); strip them
+        # so dateutil can parse the (year-less) date string reliably.
+        dt_clean = re.sub(r"(\d+)(st|nd|rd|th)", r"\1", dt, flags=re.IGNORECASE)
+        temp_dt = parse(f"{dt_clean} {this_year}")
         if temp_dt.month == 1 and today.month == 12:
-            temp_dt = parse(f"{dt} {this_year + 1}")
+            temp_dt = parse(f"{dt_clean} {this_year + 1}")
         return temp_dt
 
     def fetch(self):
@@ -146,35 +149,57 @@ class Source:
             "formValues": {"Collection Days": {"inputUPRN": {"value": self._uprn}}}
         }
         scheduleRequest = s.post(
-            f"https://eastherts-self.achieveservice.com/apibroker/runLookup?id=683d9ff0e299d&repeat_against=&noRetry=true&getOnlyTokens=undefined&log_id=&app_name=AF-Renderer::Self&_={timestamp}&sid={sid}",
+            f"https://eastherts-self.achieveservice.com/apibroker/runLookup?id=6accfd6441228&repeat_against=&noRetry=true&getOnlyTokens=undefined&log_id=&app_name=AF-Renderer::Self&_={timestamp}&sid={sid}",
             headers=HEADERS,
             json=payload,
         )
         scheduleRequest.raise_for_status()
-        rowdata = json.loads(scheduleRequest.content)["integration"]["transformed"][
-            "rows_data"
-        ]["0"]
+
+        # The portal now answers with a JSON envelope whose "data" field holds
+        # an XML document containing one row of collection dates.
+        response = scheduleRequest.json()
+        xml_data = response.get("data", "")
+        if not xml_data:
+            raise ValueError("East Herts Council returned no collection data")
+
+        root = ET.fromstring(xml_data)
+
+        today = datetime.now().date()
 
         temp_dict: dict = {}
-        for item in rowdata:
-            if "NextDate" in item:
-                if rowdata[item] != "":
-                    temp_dict.update(
-                        {item.replace("NextDate", ""): self.resolve_year(rowdata[item])}
-                    )
+        # Collections dated today. Once the portal rolls "NextDate" forward on
+        # the morning of a collection, today's collection is only available
+        # via "LastDate(Raw)" - the council's own page does the same.
+        today_dict: dict = {}
+        for row in root.iter("Row"):
+            for result in row.findall("result"):
+                column = result.get("column", "")
+                value = (result.text or "").strip()
+                if not value or result.get("isNull", "").lower() == "true":
+                    continue
+                if column.endswith("NextDate"):
+                    key = column.replace("NextDate", "")
+                    temp_dict[key] = self.resolve_year(value).date()
+                elif column.endswith("LastDateRaw"):
+                    # ISO timestamp, e.g. "2026-10-28T06:00:00+00:00"; only the
+                    # date part is meaningful (matches the portal's own logic).
+                    last_date = datetime.strptime(value[:10], "%Y-%m-%d").date()
+                    if last_date == today:
+                        today_dict[column.replace("LastDateRaw", "")] = last_date
 
         entries = []
-        for item in temp_dict:
-            if item == "GW":
-                title = "Garden Waste"
-            else:
-                title = item
-            entries.append(
-                Collection(
-                    date=temp_dict[item].date(),
-                    t=title,
-                    icon=ICON_MAP.get(title),
+        seen = set()
+        for source in (temp_dict, today_dict):
+            for item, date in source.items():
+                title = "Garden Waste" if item == "GW" else item
+                if (title, date) in seen:
+                    continue
+                seen.add((title, date))
+                entries.append(
+                    Collection(
+                        date=date,
+                        t=title,
+                        icon=ICON_MAP.get(title),
+                    )
                 )
-            )
-
         return entries

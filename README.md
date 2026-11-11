@@ -924,6 +924,7 @@ If you already have enough information for your municipality/region, you are ver
 - [MRC Marguerite-D'Youville](/doc/source/publidata_ca.md) / margueritedyouville.ca
 - [MRC Matawinie (QC)](/doc/source/gmrmatawinie_qc_ca.md) / gmrmatawinie.org
 - [Muskoka District (Huntsville, ON)](/doc/ics/recollect.md) / muskoka.on.ca
+- [Newmarket (ON)](/doc/source/recyclecoach_com.md) / newmarket.ca
 - [Niagara Region](/doc/ics/recollect.md) / niagararegion.ca
 - [Norfolk County (ON)](/doc/source/recyclecoach_com.md) / norfolkcounty.ca
 - [Notre-Dame-du-Bon-Conseil (Village)](/doc/source/villagebonconseil_ca.md) / villagebonconseil.ca
@@ -1294,6 +1295,7 @@ If you already have enough information for your municipality/region, you are ver
 - [Abfallwirtschaft Landkreis Haßberge](/doc/ics/awhas_de.md) / awhas.de
 - [Abfallwirtschaft Landkreis Kitzingen](/doc/source/abfall_io.md) / abfallwelt.de
 - [Abfallwirtschaft Landkreis Landsberg am Lech](/doc/source/abfall_io.md) / abfallberatung-landsberg.de
+- [Abfallwirtschaft Landkreis Neuwied](/doc/source/abfall_io_graphql.md) / abfall-nr.de
 - [Abfallwirtschaft Landkreis Nordhausen](/doc/ics/abfallportal_nordhausen_de.md) / abfall-nordhausen.de
 - [Abfallwirtschaft Neckar-Odenwald-Kreis](/doc/source/awn_de.md) / awn-online.de
 - [Abfallwirtschaft Nürnberger Land](/doc/source/nuernberger_land_de.md) / nuernberger-land.de
@@ -1609,8 +1611,6 @@ If you already have enough information for your municipality/region, you are ver
 - [Gelber Sack Stuttgart](/doc/ics/gelbersack_stuttgart_de.md) / gelbersack-stuttgart.de
 - [Gelnhausen (MyMuell App)](/doc/source/jumomind_de.md) / mymuell.de
 - [Gelsendienste Gelsenkirchen](/doc/ics/gelsendienste_de.md) / gelsendienste.de
-- [Gemeinde Blankenheim](/doc/source/cmcitymedia_de.md) / cmcitymedia.de
-- [Gemeinde Deggenhausertal](/doc/source/cmcitymedia_de.md) / cmcitymedia.de
 - [Gemeinde Groß Pankow (Landkreis Prignitz)](/doc/source/abfall_io.md) / landkreis-prignitz.de
 - [Gemeinde Gründau](/doc/source/heimat_info_de.md) / heimat-info.de/gemeinden/gruendau/abfallkalender
 - [Gemeinde Gumtow (Landkreis Prignitz)](/doc/source/abfall_io.md) / landkreis-prignitz.de
@@ -1618,7 +1618,6 @@ If you already have enough information for your municipality/region, you are ver
 - [Gemeinde Hille](/doc/ics/hille_de.md) / hille.de
 - [Gemeinde Hüllhorst](/doc/ics/huellhorst_de.md) / huellhorst.de
 - [Gemeinde Ismaning – Abfallkalender](/doc/source/ismaning_de.md) / ismaning.de/umwelt-energie/abfall/abfallkalender
-- [Gemeinde Kalletal](/doc/source/cmcitymedia_de.md) / cmcitymedia.de
 - [Gemeinde Karstädt (Landkreis Prignitz)](/doc/source/abfall_io.md) / landkreis-prignitz.de
 - [Gemeinde Kirchlengern](/doc/source/kirchlengern_de.md) / kirchlengern.de
 - [Gemeinde Kranenburg](/doc/source/abfallnavi_de.md) / kranenburg.de
@@ -1627,7 +1626,6 @@ If you already have enough information for your municipality/region, you are ver
 - [Gemeinde Plattenburg (Landkreis Prignitz)](/doc/source/abfall_io.md) / landkreis-prignitz.de
 - [Gemeinde Roetgen](/doc/source/abfallnavi_de.md) / roetgen.de
 - [Gemeinde Rödinghausen](/doc/ics/abfall_export_vcal.md) / roedinghausen.de
-- [Gemeinde Schutterwald](/doc/source/cmcitymedia_de.md) / cmcitymedia.de
 - [Gemeinde Unterhaching](/doc/source/awido_de.md) / unterhaching.de
 - [GFA Lüneburg](/doc/source/gfa_lueneburg_de.md) / gfa-lueneburg.de
 - [Gierswalde](/doc/source/nerdbridge_de.md) / abfall.nerdbridge.de
@@ -2145,7 +2143,6 @@ If you already have enough information for your municipality/region, you are ver
 - [Stadt Delmenhorst](/doc/ics/stadt_delmenhorst_de.md) / delmenhorst.de
 - [Stadt Detmold](/doc/ics/detmold_de.md) / detmold.de
 - [Stadt Dorsten](/doc/source/abfallnavi_de.md) / ebd-dorsten.de
-- [Stadt Emmendingen](/doc/source/cmcitymedia_de.md) / cmcitymedia.de
 - [Stadt Enger](/doc/ics/enger_de.md) / enger.de
 - [Stadt Frankenberg (Eder)](/doc/source/frankenberg_de.md) / frankenberg.de
 - [Stadt Frankenthal](/doc/source/abfallnavi_de.md) / frankenthal.de
@@ -2166,7 +2163,6 @@ If you already have enough information for your municipality/region, you are ver
 - [Stadt Mainhausen](/doc/ics/stadt_mainhausen_de.md) / mainhausen.de
 - [Stadt Maintal](/doc/source/muellmax_de.md) / maintal.de
 - [Stadt Memmingen](/doc/source/awido_de.md) / umwelt.memmingen.de
-- [Stadt Messstetten](/doc/source/cmcitymedia_de.md) / cmcitymedia.de
 - [Stadt Norderstedt](/doc/source/abfallnavi_de.md) / betriebsamt-norderstedt.de
 - [Stadt Osnabrück](/doc/ics/osnabrueck_de.md) / osnabrueck.de
 - [Stadt Perleberg (Landkreis Prignitz)](/doc/source/abfall_io.md) / landkreis-prignitz.de
@@ -2882,18 +2878,18 @@ If you already have enough information for your municipality/region, you are ver
 <details>
 <summary>Liechtenstein</summary>
 
-- [Balzers](/doc/source/abfalltransport_li.md) / abfalltransport.li
-- [Eschen Nendeln](/doc/source/abfalltransport_li.md) / abfalltransport.li
-- [FL Abfalltransport AG](/doc/source/abfalltransport_li.md) / abfalltransport.li
-- [Gamprin Bendern](/doc/source/abfalltransport_li.md) / abfalltransport.li
-- [Mauren Schaanwald](/doc/source/abfalltransport_li.md) / abfalltransport.li
-- [Planken](/doc/source/abfalltransport_li.md) / abfalltransport.li
-- [Ruggell](/doc/source/abfalltransport_li.md) / abfalltransport.li
-- [Schaan](/doc/source/abfalltransport_li.md) / abfalltransport.li
-- [Schellenberg](/doc/source/abfalltransport_li.md) / abfalltransport.li
-- [Triesen](/doc/source/abfalltransport_li.md) / abfalltransport.li
-- [Triesenberg](/doc/source/abfalltransport_li.md) / abfalltransport.li
-- [Vaduz](/doc/source/abfalltransport_li.md) / abfalltransport.li
+- [Balzers](/doc/source/abfalltransport_li.md) / ezv.li/abfallentsorgung/abfallkalender
+- [Eschen Nendeln](/doc/source/abfalltransport_li.md) / ezv.li/abfallentsorgung/abfallkalender
+- [FL Abfalltransport AG](/doc/source/abfalltransport_li.md) / ezv.li/abfallentsorgung/abfallkalender
+- [Gamprin Bendern](/doc/source/abfalltransport_li.md) / ezv.li/abfallentsorgung/abfallkalender
+- [Mauren Schaanwald](/doc/source/abfalltransport_li.md) / ezv.li/abfallentsorgung/abfallkalender
+- [Planken](/doc/source/abfalltransport_li.md) / ezv.li/abfallentsorgung/abfallkalender
+- [Ruggell](/doc/source/abfalltransport_li.md) / ezv.li/abfallentsorgung/abfallkalender
+- [Schaan](/doc/source/abfalltransport_li.md) / ezv.li/abfallentsorgung/abfallkalender
+- [Schellenberg](/doc/source/abfalltransport_li.md) / ezv.li/abfallentsorgung/abfallkalender
+- [Triesen](/doc/source/abfalltransport_li.md) / ezv.li/abfallentsorgung/abfallkalender
+- [Triesenberg](/doc/source/abfalltransport_li.md) / ezv.li/abfallentsorgung/abfallkalender
+- [Vaduz](/doc/source/abfalltransport_li.md) / ezv.li/abfallentsorgung/abfallkalender
 </details>
 
 <details>
@@ -3002,6 +2998,7 @@ If you already have enough information for your municipality/region, you are ver
 - [Reinigingsdienst Midden Nederland](/doc/source/burgerportaal_nl.md) / rmn.nl
 - [Reinis](/doc/source/hvcgroep_nl.md) / reinis.nl
 - [Rova](/doc/source/rova_nl.md) / rova.nl
+- [RWM](/doc/source/hvcgroep_nl.md) / rwm.nl
 - [Saver](/doc/source/saver_nl.md) / saver.nl
 - [Schiermonnikoog](/doc/source/omrin_nl.md) / omrin.nl
 - [Spaarnelanden](/doc/source/hvcgroep_nl.md) / spaarnelanden.nl
@@ -3126,6 +3123,7 @@ If you already have enough information for your municipality/region, you are ver
 - [Gmina Krotoszyce](/doc/source/sims_pl.md) / sisms.pl
 - [Gmina Kruszwica](/doc/source/sims_pl.md) / sisms.pl
 - [Gmina Krzanowice](/doc/source/sims_pl.md) / sisms.pl
+- [Gmina Kórnik](/doc/source/kiedyodpady_pl.md) / kornik.kiedyodpady.pl
 - [Gmina Legnickie Pole](/doc/source/sims_pl.md) / sisms.pl
 - [Gmina Lubrza](/doc/source/sims_pl.md) / sisms.pl
 - [Gmina Miedziana Góra](/doc/source/sims_pl.md) / sisms.pl
@@ -3928,8 +3926,10 @@ If you already have enough information for your municipality/region, you are ver
 - [West Oxfordshire District Council](/doc/source/westoxon_gov_uk.md) / westoxon.gov.uk
 - [West Suffolk Council](/doc/source/westsuffolk_gov_uk.md) / westsuffolk.gov.uk
 - [Westminster City Council](/doc/source/westminster_gov_uk.md) / westminster.gov.uk
-- [Westmorland & Furness Council, Barrow area](/doc/ics/barrowbc_gov_uk.md) / barrowbc.gov.uk
-- [Westmorland & Furness Council, South Lakeland area](/doc/ics/southlakeland_gov_uk.md) / southlakeland.gov.uk
+- [Westmorland & Furness Council](/doc/ics/westmorlandandfurness_gov_uk.md) / westmorlandandfurness.gov.uk
+- [Westmorland & Furness Council, Barrow area](/doc/ics/westmorlandandfurness_gov_uk.md) / barrowbc.gov.uk
+- [Westmorland & Furness Council, Eden area](/doc/ics/westmorlandandfurness_gov_uk.md) / eden.gov.uk
+- [Westmorland & Furness Council, South Lakeland area](/doc/ics/westmorlandandfurness_gov_uk.md) / southlakeland.gov.uk
 - [Wigan Council](/doc/source/wigan_gov_uk.md) / wigan.gov.uk
 - [Wiltshire Council](/doc/source/wiltshire_gov_uk.md) / wiltshire.gov.uk
 - [Winchester City Council](/doc/source/iapp_itouchvision_com.md) / winchester.gov.uk

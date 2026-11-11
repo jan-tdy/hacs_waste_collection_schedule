@@ -17,7 +17,7 @@ waste_collection_schedule:
 **address**  
 *(String) (required)*
 
-The address as shown in the RfD address search results, for example `Grønland 1, Drammen`.
+The address as shown in the RfD address search results, for example `Bragernes Torg 13, Drammen`.
 
 ## Example
 
@@ -26,8 +26,12 @@ waste_collection_schedule:
     sources:
     - name: rfd_no
       args:
-        address: Grønland 1, Drammen
+        address: Bragernes Torg 13, Drammen
 ```
+
+## Collection types
+
+The schedule page on rfd.no lists residual waste (`Restavfall`) and food waste (`Matavfall`) separately, and they are collected on different schedules. The source reports them as two separate types. The other types are `Papiravfall`, `Plastemballasje`, `Glass- og metallemballasje` and `Hageavfall`.
 
 ## How to get the source argument
 
